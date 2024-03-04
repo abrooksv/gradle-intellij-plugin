@@ -1,3 +1,5 @@
+import org.jetbrains.intellij.platform.gradle.extensions.TestFrameworkType
+
 val languageVersionProperty = providers.gradleProperty("languageVersion").map { JavaLanguageVersion.of(it) }
 
 plugins {
@@ -6,19 +8,11 @@ plugins {
     id("org.jetbrains.intellij.platform.base")
 }
 
-repositories {
-    mavenCentral()
-
-    intellijPlatform {
-        defaultRepositories()
-    }
-}
-
 dependencies {
     intellijPlatform {
         intellijIdeaCommunity(providers.gradleProperty("intellijPlatform.version"))
 
-        testFramework()
+        testFramework(TestFrameworkType.JUnit4)
     }
 }
 

@@ -7,14 +7,6 @@ plugins {
     id("org.jetbrains.intellij.platform")
 }
 
-repositories {
-    mavenCentral()
-
-    intellijPlatform {
-        defaultRepositories()
-    }
-}
-
 dependencies {
     implementation(project(":modules:core"))
     implementation(project(":modules:python"))

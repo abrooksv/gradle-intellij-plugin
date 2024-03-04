@@ -1,17 +1,11 @@
+import org.jetbrains.intellij.platform.gradle.extensions.TestFrameworkType
+
 val languageVersionProperty = providers.gradleProperty("languageVersion").map { JavaLanguageVersion.of(it) }
 
 plugins {
     id("java-test-fixtures")
     id("org.jetbrains.kotlin.jvm")
     id("org.jetbrains.intellij.platform.base")
-}
-
-repositories {
-    mavenCentral()
-
-    intellijPlatform {
-        defaultRepositories()
-    }
 }
 
 dependencies {
@@ -22,7 +16,7 @@ dependencies {
     intellijPlatform {
         pycharmCommunity(providers.gradleProperty("intellijPlatform.version"))
 
-        testFramework()
+        testFramework(TestFrameworkType.JUnit4)
     }
 }
 

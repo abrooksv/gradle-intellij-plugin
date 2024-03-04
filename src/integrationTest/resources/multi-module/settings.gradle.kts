@@ -23,7 +23,7 @@ dependencyResolutionManagement {
         mavenCentral()
 
         intellijPlatform {
-            // TODO: Broken? defaultRepositories()
+            defaultRepositories()
         }
     }
 }
